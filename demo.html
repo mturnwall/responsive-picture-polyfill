@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<title>Responsive Image Polyfill Demo</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<link type="text/css" href="" rel="stylesheet" media="screen, projection">
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+</head>
+<body>
+<h1>Responsive Image Polyfill</h1>
+<p>Here is an example of the responsive images from the W3C spec</p>
+<code>
+	<picture width="500" height="500">
+		<source media="(min-width: 45em)" src="large.jpg">
+		<source media="(min-width: 18em)" src="med.jpg">
+		<source src="small.jpg">
+		<img src="small.jpg" alt="">
+		<p>Accessible text</p>
+	</picture>
+</code>
+</body>
+</html>
