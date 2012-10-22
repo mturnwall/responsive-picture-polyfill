@@ -2,7 +2,7 @@
 	var start, end;
 	function picture() {}
 
-	picture.version = '0.2';
+	picture.version = '0.2.1';
 
 	picture.load = function() {
 		start = +new Date();
@@ -11,7 +11,7 @@
 		containers = document.getElementsByTagName('div');
 
 		for (i=0, length=containers.length; i < length; i++) {
-			if (containers[i].className.match(/picutrePolyfill/)) {
+			if (containers[i].className.match(/picturePolyfill/)) {
 				picture.elements.push(
 				{
 					node: containers[i],
@@ -38,13 +38,10 @@
 		if (images.length) {
 			for (var i = images.length - 1; i >= 0; i--) {
 				if (!document.getElementById(images[i].id)) {
-					console.log(images[i].id);
 					img = document.createElement('img');
 					img.alt = images[i].alt;
 					img.id = images[i].id;
-					// img.onload = function() {
-						document.body.appendChild(img);
-						// };
+					document.body.appendChild(img);
 					img.src = images[i].src;
 				} else {
 					document.getElementById(images[i].id).src = images[i].src;
