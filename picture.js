@@ -1,10 +1,11 @@
 (function(global) {
-
+	var start, end;
 	function picture() {}
 
-	picture.version = '0.1';
+	picture.version = '0.2';
 
 	picture.load = function() {
+		start = +new Date();
 		var versions, i, length, vLength, j;
 		picture.elements = [];
 		containers = document.getElementsByTagName('div');
@@ -29,7 +30,6 @@
 				};
 			}
 		}
-		console.log(picture.elements);
 		picture.resize();
 	};
 
@@ -38,20 +38,22 @@
 		if (images.length) {
 			for (var i = images.length - 1; i >= 0; i--) {
 				if (!document.getElementById(images[i].id)) {
-					img = new Image();
+					console.log(images[i].id);
+					img = document.createElement('img');
 					img.alt = images[i].alt;
 					img.id = images[i].id;
-					img.onload = function() {
-						console.log(this);
+					// img.onload = function() {
 						document.body.appendChild(img);
-						};
+						// };
 					img.src = images[i].src;
-					console.log(img);
 				} else {
 					document.getElementById(images[i].id).src = images[i].src;
 				}
 			}
 		}
+		var end =  +new Date();  // log end timestamp
+		var diff = end - start;
+		console.log(diff,' ms');
 	};
 
 	picture.resize = function() {
