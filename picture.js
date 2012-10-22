@@ -4,7 +4,8 @@
 	var start, end, diff;
 	function picture() {}
 
-	picture.version = '0.2.2';
+	picture.version = '0.3';
+
 
 	picture.load = function() {
 		start = +new Date();
@@ -21,17 +22,24 @@
 					id: 'picture' + (Math.round(Math.random() * 10000)),
 					sources: []
 				});
+				versions = containers[i].getElementsByTagName('div');
+				for (j=0, vLength=versions.length; j<vLength; j++) {
+					picture.elements[picture.elements.length - 1].sources[j] = {
+						srcset: versions[j].getAttribute('data-srcset'),
+						media: versions[j].getAttribute('data-media') || false
+					};
+				}
 			}
 		}
-		for (i=0, length=picture.elements.length; i < length; i++) {
-			versions = picture.elements[i].node.getElementsByTagName('div');
-			for (j=0, vLength=versions.length; j<vLength; j++) {
-				picture.elements[i].sources[j] = {
-					srcset: versions[j].getAttribute('data-srcset'),
-					media: versions[j].getAttribute('data-media') || false
-				};
-			}
-		}
+		// for (i=0, length=picture.elements.length; i < length; i++) {
+		// 	versions = picture.elements[i].node.getElementsByTagName('div');
+		// 	for (j=0, vLength=versions.length; j<vLength; j++) {
+		// 		picture.elements[i].sources[j] = {
+		// 			srcset: versions[j].getAttribute('data-srcset'),
+		// 			media: versions[j].getAttribute('data-media') || false
+		// 		};
+		// 	}
+		// }
 		picture.resize();
 	};
 
