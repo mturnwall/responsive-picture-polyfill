@@ -1,8 +1,10 @@
+/*jshint strict:false*/
+/*global console: true*/
 (function(global) {
-	var start, end;
+	var start, end, diff;
 	function picture() {}
 
-	picture.version = '0.2.1';
+	picture.version = '0.2.2';
 
 	picture.load = function() {
 		start = +new Date();
@@ -48,8 +50,8 @@
 				}
 			}
 		}
-		var end =  +new Date();  // log end timestamp
-		var diff = end - start;
+		end = +new Date();  // log end timestamp
+		diff = end - start;
 		console.log(diff,' ms');
 	};
 
