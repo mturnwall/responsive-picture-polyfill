@@ -1,4 +1,3 @@
-/*jshint strict:false*/
 /*global console: true*/
 (function(global) {
     "use strict";
