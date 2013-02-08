@@ -8,7 +8,6 @@
 
 
 	picture.load = function() {
-		start = +new Date();
 		var versions, i, length, vLength, j, containers;
 		picture.elements = [];
 		containers = document.getElementsByTagName('div');
