@@ -1,7 +1,7 @@
 /*global console: true*/
 (function(global) {
     "use strict";
-	var start, end, diff;
+
 	function picture() {}
 
 	picture.version = '0.3';
@@ -31,22 +31,13 @@
 				}
 			}
 		}
-		// for (i=0, length=picture.elements.length; i < length; i++) {
-		// 	versions = picture.elements[i].node.getElementsByTagName('div');
-		// 	for (j=0, vLength=versions.length; j<vLength; j++) {
-		// 		picture.elements[i].sources[j] = {
-		// 			srcset: versions[j].getAttribute('data-srcset'),
-		// 			media: versions[j].getAttribute('data-media') || false
-		// 		};
-		// 	}
-		// }
 		picture.resize();
 	};
 
 	picture.loadImage = function(images) {
-		var img;
+		var img, i;
 		if (images.length) {
-			for (var i = images.length - 1; i >= 0; i--) {
+			for (i = images.length - 1; i >= 0; i--) {
 				if (!document.getElementById(images[i].id)) {
 					img = document.createElement('img');
 					img.alt = images[i].alt;
@@ -58,9 +49,6 @@
 				}
 			}
 		}
-		end = +new Date();  // log end timestamp
-		diff = end - start;
-		console.log(diff,' ms');
 	};
 
 	picture.resize = function() {
